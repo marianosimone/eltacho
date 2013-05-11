@@ -4,7 +4,7 @@ require 'json'
 require 'time'
 
 get '/' do
-    erb :index, locals: {tachos: [1,2]}
+    erb :index, locals: {tachos: [1,2,3,4,5,6]}
 end
 
 get '/bin/:id.?:format?' do
