@@ -10,6 +10,7 @@ else
   # And create database schema for development.
   db.create_table :bins do
     primary_key :id
+    String :name
   end
 
   db.create_table :events do
@@ -37,7 +38,7 @@ class Bin < Sequel::Model
   one_to_many :disposals
 
   def count
-    disposals_dataset.sum(:count)
+    disposals_dataset.sum(:count) || 0
   end
 
   def to_hash
@@ -55,5 +56,5 @@ end
 
 unless db_url
   # Create some models.
-  Bin.create
+  Bin.create(name: 'BAhackaTacho')
 end

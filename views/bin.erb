@@ -9,11 +9,11 @@
 function reload_data() {
     $.ajax({
         type: "GET",
-        url: "/bin/<%= bin.name %>.json",
+        url: "/bin/<%= bin.id %>",
         dataType: "json",
         success: function(data) {
             $("span#counter").text(data.count);
-            $("span#timestamp").text(data.time);
+            $("span#timestamp").text(new Date);
         },
         error: function(response) {
             console.log("Error:" + response.responseText);
