@@ -1,8 +1,20 @@
-<h1><%= bin.name %></h1>
-<div id="bin-data">
-    <span id="counter"></span>
-    <br/>
-    <span id="timestamp"></span>
+<div class="hero-unit" style="background: url('/img/bin_<%= bin.id %>.jpg') no-repeat; background-size: 100%">
+    <h1 class="bin-name" style="color:white"><%= bin.name %></h1>
+</div>
+
+<div class="row">
+    <div class="span6 bin-summary-bottles">
+      <h2><span id="counter"></span></h2>
+        <p>
+             botellas de pl&aacute;stico
+        </p>
+    </div>
+    <div class="span6 bin-summary-trees">
+      <h2><span id="counter"></span></h2>
+        <p>
+            has de bosques
+        </p>
+    </div>
 </div>
 
 <script type="text/javascript"/>
@@ -13,7 +25,6 @@ function reload_data() {
         dataType: "json",
         success: function(data) {
             $("span#counter").text(data.count);
-            $("span#timestamp").text(new Date);
         },
         error: function(response) {
             console.log("Error:" + response.responseText);

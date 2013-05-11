@@ -1,3 +1,4 @@
+
 html,
 body {
     height: 100%;
@@ -30,21 +31,29 @@ body {
   padding-left: 20px;
   padding-right: 20px;
 }
+}
 
 header {
     font-size: small;
 }
-#bin-data {
-    width: 100%;
-    text-align: center;
+
+.bin-name {
+    color:red;
 }
 
-#bin-data #counter {
-    margin: 2em;
-    font-size: 20em;
+.counter {
     font-weight: bold;
-    color: red;
+    color: black;
 }
 
-#bin-data #timestamp {
+.bin-summary-bottles {
+    text-align: center;
+    background: url('/img/bottle.png') no-repeat;
+    height: 250px;
+}
+
+.bin-summary-trees {
+    text-align: center;
+    background: url('/img/plant.png') no-repeat;
+    height: 250px;
 }
