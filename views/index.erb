@@ -5,8 +5,10 @@
                 <% for tacho in tachos %>
                     <li class="span4" type="misc">
                         <div class="thumbnail">
-                            <a rel="lightbox" href="mostrar datos">FOTO</a>  
-                            <h5>NOMBRE TACHO</h5>
+                            <a rel="lightbox" href="bin/<%=tacho%>">
+                                <h1>FOTO</h1>
+                                <h5><%=tacho%></h5>
+                            </a>  
                         </div>
                     </li>
                 <% end %>

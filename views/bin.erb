@@ -1,6 +1,7 @@
 <h1><%= bin.name %></h1>
 <div id="bin-data">
-    <span id="server"></span>
+    <span id="counter"></span>
+    <br/>
     <span id="timestamp"></span>
 </div>
 
@@ -8,10 +9,10 @@
 function reload_data() {
     $.ajax({
         type: "GET",
-        url: "bin/<%= bin.name %>",
+        url: "/bin/<%= bin.name %>.json",
         dataType: "json",
         success: function(data) {
-            $("span#server").text(data.count);
+            $("span#counter").text(data.count);
             $("span#timestamp").text(data.time);
         },
         error: function(response) {

@@ -9,3 +9,17 @@ footer {
 img#ciudad_verde {
     float: right;
 }
+
+#bin-data {
+    width: 100%;
+    text-align: center;
+}
+
+#bin-data #counter {
+    font-size: xx-large;
+    font-weight: bold;
+    color: red;
+}
+
+#bin-data #timestamp {
+}
