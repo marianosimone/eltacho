@@ -6,17 +6,23 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+    <script src="/js/jquery-2.0.0.min.js"></script>
 </head>
 <body>
-    <header>
-        <p>Algo tachero</p>
-    </header>
-    <script src="/js/jquery-2.0.0.min.js"></script>
-    <content>
-        <%= yield %>
-    </content>
-    <footer>
-        <img id="ciudad_verde" src="/img/ciudad_verde.png" alt="BA Ciudad Verde"/>
+    <div id="wrap">
+      <div class="container">
+        <header class="page-header">
+          <span>El Tacho!</span>
+        </header>
+        <content><%= yield %></content>
+      </div>
+      <div id="push"></div>
+    </div>
+
+    <footer id="footer">
+      <div class="container">
+        <img id="ciudad_verde" src="/img/ciudad_verde.png" alt="BA Ciudad Verde"/></p>
+      </div>
     </footer>
 </body>
 </html>
