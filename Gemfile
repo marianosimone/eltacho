@@ -1,5 +1,8 @@
 source "https://rubygems.org"
+
 gem 'sinatra', '1.4.2'
+gem 'sinatra-contrib'
+gem "sequel", "~> 3.47.0"
 
 group :development do
   gem "foreman", "~> 0.63.0"
