@@ -16,7 +16,8 @@ img#ciudad_verde {
 }
 
 #bin-data #counter {
-    font-size: xx-large;
+    margin: 2em;
+    font-size: 20em;
     font-weight: bold;
     color: red;
 }
