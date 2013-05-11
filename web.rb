@@ -8,7 +8,7 @@ require 'sequel'
 require './models'
 
 get '/' do
-  erb :index, locals: {tachos: [1,2,3,4,5,6]}
+  erb :index, locals: {bins: Bin.all}
 end
 
 get '/bin/:id' do
