@@ -1,3 +1,11 @@
 body {
     background: gray;
 }
+
+footer {
+    padding: 1em;
+}
+
+img#ciudad_verde {
+    float: right;
+}

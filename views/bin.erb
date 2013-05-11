@@ -1,0 +1,27 @@
+<h1><%= bin.name %></h1>
+<div id="bin-data">
+    <span id="server"></span>
+    <span id="timestamp"></span>
+</div>
+
+<script type="text/javascript"/>
+function reload_data() {
+    $.ajax({
+        type: "GET",
+        url: "bin/<%= bin.name %>",
+        dataType: "json",
+        success: function(data) {
+            $("span#server").text(data.count);
+            $("span#timestamp").text(data.time);
+        },
+        error: function(response) {
+            console.log("Error:" + response.responseText);
+        }
+    });
+}
+
+$(document).ready(function(){
+    reload_data();
+    setInterval(reload_data, 3000);
+});
+</script>
