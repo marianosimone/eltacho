@@ -14,10 +14,10 @@ class MetricsCalculator
     {savings: 119, savings_format: "%d", savings_metric: :grs, savings_subject: 'de CO2', savings_image: 'smoke'},
     {savings: 0.0022, savings_format: "%.2f", savings_metric: :lts, savings_subject: 'de petróleo', savings_image: 'oil'}
   ]
-  def self.calculate(bin)
+  def self.calculate(event)
     equivalence = @@equivalences.sample
     {
-      savings: equivalence[:savings_format] % (equivalence[:savings]*bin.count),
+      savings: equivalence[:savings_format] % (equivalence[:savings]*event.count),
       savings_metric: equivalence[:savings_metric],
       savings_subject: equivalence[:savings_subject],
       savings_image: equivalence[:savings_image]
@@ -26,15 +26,7 @@ class MetricsCalculator
 end
 
 get '/' do
-  erb :index, locals: {bins: Bin.all}
-end
-
-get '/bin/:id' do
-  bin = bin_by_id(params[:id])
-  respond_to do |f|
-    f.html { erb :bin, locals: {bin: bin} }
-    f.json { bin.to_hash.merge(MetricsCalculator.calculate(bin)).to_json }
-  end
+  erb :index, locals: {events: Event.all}
 end
 
 post '/bin/:id/dispose', provides: :json do
@@ -58,7 +50,10 @@ end
 
 get '/event/:id' do
   event = event_by_id(params[:id])
-  "TODO: Page for event #{event.name}"
+  respond_to do |f|
+    f.html { erb :event, locals: {event: event} }
+    f.json { event.to_hash.merge(MetricsCalculator.calculate(event)).to_json }
+  end
 end
 
 not_found do

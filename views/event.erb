@@ -1,17 +1,17 @@
-<div class="hero-unit" style="background: url('/img/bin_<%= bin.id %>.jpg') no-repeat; background-size: 100%; margin-top: 2em;">
-    <h1 class="bin-name"><%= bin.name %></h1>
+<div class="hero-unit" style="background: url('/img/event_<%= event.id %>.jpg') no-repeat; background-size: 100%; margin-top: 2em;">
+    <h1 class="event-name"><%= event.name %></h1>
 </div>
 
 <div class="row" style="margin-top: 6em;">
-    <div class="span5 bin-summary bottles">
+    <div class="span5 summary bottles">
       <span id="bottles" class="counter">0</span>
       <br/>
       botellas de pl&aacute;stico
     </div>
-    <div class="span2 bin-summary equals">
+    <div class="span2 summary equals">
       =
     </div>
-    <div class="span5 bin-summary savings">
+    <div class="span5 summary savings">
       <span id="savings" class="counter">0</span> <span id="savings-metric"></span>
       <br/>
       <span id="savings-subject"></span>
@@ -22,13 +22,13 @@
 function reload_data() {
     $.ajax({
         type: "GET",
-        url: "/bin/<%= bin.id %>",
+        url: "/event/<%= event.id %>",
         dataType: "json",
-        success: function(data) {
-            $("span#bottles").text(data.count);
-            $("span#savings").text(data.savings);
-            $("span#savings-metric").text(data.savings_metric);
-            $("span#savings-subject").text(data.savings_subject);
+        success: function(event) {
+            $("span#bottles").text(event.count);
+            $("span#savings").text(event.savings);
+            $("span#savings-metric").text(event.savings_metric);
+            $("span#savings-subject").text(event.savings_subject);
             $("div.savings").css('background', "url('/img/"+data.savings_image+".png') no-repeat top right");
         },
         error: function(response) {
