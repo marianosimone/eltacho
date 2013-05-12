@@ -66,4 +66,8 @@ end
 unless db_url
   # Create some models.
   5.times { |n| Bin.create(name: "Tacho #{n + 1}") }
+  e = Event.create(name: 'BAHackaton', description: 'Hackaton de Buenos Aires')
+  e.add_bin(Bin[2])
+  e.add_bin(Bin[4])
+  3.times { Disposal.create(bin: Bin[2], count: 1, created_at: Time.now) }
 end
