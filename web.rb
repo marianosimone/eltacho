@@ -44,6 +44,23 @@ post '/bin/:id/dispose', provides: :json do
   bin.to_hash.to_json
 end
 
+get '/event/new' do
+  erb :create_event, locals: {bins: Bin.all}
+end
+
+post '/event/new' do
+  event = Event.create(sub_hash(params, :name, :description))
+  bins = Bin.where(id: params[:bins]).all
+  bins.each { |b| event.add_bin(b) }
+  p event.bins
+  redirect "/event/#{event.id}"
+end
+
+get '/event/:id' do
+  event = event_by_id(params[:id])
+  "TODO: Page for event #{event.name}"
+end
+
 not_found do
   '<img src="http://httpcats.herokuapp.com/404.jpg">'
 end
@@ -51,5 +68,15 @@ end
 helpers do
   def bin_by_id(id)
     Bin[id] || halt(404)
+  end
+
+  def event_by_id(id)
+    Event[id] || halt(404)
+  end
+
+  def sub_hash(hash, *keys)
+    res = {}
+    keys.each { |k| res[k] = hash[k] }
+    res
   end
 end

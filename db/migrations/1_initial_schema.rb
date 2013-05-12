@@ -1,5 +1,5 @@
 Sequel.migration do
-  up do
+  change do
     # And create database schema for development.
     create_table :bins do
       primary_key :id

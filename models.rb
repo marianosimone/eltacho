@@ -16,6 +16,7 @@ else
   db.create_table :events do
     primary_key :id
     String :name, null: false
+    String :description, text: true
     DateTime :start
     DateTime :end
   end
@@ -56,5 +57,5 @@ end
 
 unless db_url
   # Create some models.
-  Bin.create(name: 'BAhackaTacho')
+  5.times { |n| Bin.create(name: "Tacho #{n + 1}") }
 end
