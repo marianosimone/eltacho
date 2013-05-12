@@ -1,19 +1,20 @@
-<div class="hero-unit" style="background: url('/img/bin_<%= bin.id %>.jpg') no-repeat; background-size: 100%">
-    <h1 class="bin-name" style="color:white"><%= bin.name %></h1>
+<div class="hero-unit" style="background: url('/img/bin_<%= bin.id %>.jpg') no-repeat; background-size: 100%; margin-top: 2em;">
+    <h1 class="bin-name"><%= bin.name %></h1>
 </div>
 
-<div class="row">
-    <div class="span6 bin-summary-bottles">
-      <h2><span id="counter"></span></h2>
-        <p>
-             botellas de pl&aacute;stico
-        </p>
+<div class="row" style="margin-top: 6em;">
+    <div class="span5 bin-summary bottles">
+      <span id="bottles" class="counter">0</span> kgs
+      <br/>
+      de botellas
     </div>
-    <div class="span6 bin-summary-trees">
-      <h2><span id="counter"></span></h2>
-        <p>
-            has de bosques
-        </p>
+    <div class="span2 bin-summary equals">
+      =
+    </div>
+    <div class="span5 bin-summary savings">
+      <span id="savings" class="counter">0</span> <span id="savings-metric"></span>
+      <br/>
+      <span id="savings-subject"></span>
     </div>
 </div>
 
@@ -24,7 +25,11 @@ function reload_data() {
         url: "/bin/<%= bin.id %>",
         dataType: "json",
         success: function(data) {
-            $("span#counter").text(data.count);
+            $("span#bottles").text(data.count);
+            $("span#savings").text(data.savings);
+            $("span#savings-metric").text(data.savings_metric);
+            $("span#savings-subject").text(data.savings_subject);
+            $("div.savings").css('background', "url('/img/"+data.savings_image+".png') no-repeat top right");
         },
         error: function(response) {
             console.log("Error:" + response.responseText);

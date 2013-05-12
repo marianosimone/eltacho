@@ -37,23 +37,30 @@ header {
     font-size: small;
 }
 
-.bin-name {
-    color:red;
+div.hero-unit h1.bin-name {
+    color: white;
 }
 
 .counter {
+    font-size: 6em;
     font-weight: bold;
     color: black;
 }
 
-.bin-summary-bottles {
+.bin-summary {
+    font-family: 'Days One', cursive;
+    font-size: 2em;
     text-align: center;
-    background: url('/img/bottle.png') no-repeat;
     height: 250px;
+    line-height: 1.5em;
+    padding: 2em 0;
 }
 
-.bin-summary-trees {
-    text-align: center;
-    background: url('/img/plant.png') no-repeat;
-    height: 250px;
+.bottles {
+    background: url('/img/bottle.png') no-repeat;
+}
+
+.equals {
+    padding: 0;
+    font-size: 8em;
 }
