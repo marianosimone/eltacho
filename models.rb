@@ -49,6 +49,14 @@ end
 
 class Event < Sequel::Model
   many_to_many :bins
+
+  def count
+    bins.map(&:count).inject(0, :+)
+  end
+
+  def to_hash
+    super.merge(count: count)
+  end
 end
 
 class Disposal < Sequel::Model
