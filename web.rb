@@ -10,8 +10,8 @@ require './models'
 
 class MetricsCalculator
   @@equivalences = [
-    {savings: 1, savings_format: "%d", savings_metric: :has, savings_subject: 'de bosques', savings_image: 'plant'},
-    {savings: 3, savings_format: "%d", savings_metric: :grs, savings_subject: 'de CO2', savings_image: 'smoke'},
+    {savings: 1, savings_format: "%d", savings_metric: :mts2, savings_subject: 'de bosques', savings_image: 'plant'},
+    {savings: 119, savings_format: "%d", savings_metric: :grs, savings_subject: 'de CO2', savings_image: 'smoke'},
     {savings: 0.0022, savings_format: "%.2f", savings_metric: :lts, savings_subject: 'de petróleo', savings_image: 'oil'}
   ]
   def self.calculate(bin)
