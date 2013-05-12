@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'sinatra'
 require 'sinatra/contrib'
 require 'sinatra/reloader' if development?
@@ -9,13 +10,14 @@ require './models'
 
 class MetricsCalculator
   @@equivalences = [
-    {savings: 1, savings_metric: :has, savings_subject: 'de bosques', savings_image: 'plant'},
-    {savings: 3, savings_metric: :grs, savings_subject: 'de CO2', savings_image: 'smoke'}
+    {savings: 1, savings_format: "%d", savings_metric: :has, savings_subject: 'de bosques', savings_image: 'plant'},
+    {savings: 3, savings_format: "%d", savings_metric: :grs, savings_subject: 'de CO2', savings_image: 'smoke'},
+    {savings: 0.0022, savings_format: "%.2f", savings_metric: :lts, savings_subject: 'de petróleo', savings_image: 'oil'}
   ]
   def self.calculate(bin)
     equivalence = @@equivalences.sample
     {
-      savings: equivalence[:savings]*bin.count,
+      savings: equivalence[:savings_format] % (equivalence[:savings]*bin.count),
       savings_metric: equivalence[:savings_metric],
       savings_subject: equivalence[:savings_subject],
       savings_image: equivalence[:savings_image]
