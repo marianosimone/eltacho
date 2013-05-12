@@ -19,6 +19,7 @@ else
     String :description, text: true
     DateTime :start
     DateTime :end
+    File :image
   end
 
   db.create_join_table bin_id: :bins, event_id: :events
@@ -55,7 +56,9 @@ class Event < Sequel::Model
   end
 
   def to_hash
-    super.merge(count: count)
+    hash = super
+    hash.delete(:image)
+    hash.merge(count: count)
   end
 end
 

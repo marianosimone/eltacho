@@ -1,12 +1,12 @@
 <h2>Nuevo Evento</h2>
-<form action="/event/new" method="post">
+<form action="/event/new" method="post" enctype="multipart/form-data">
   <fieldset>
     <label>Nombre</label>
     <input name="name" type="text" placeholder="Nombre del evento..." required>
     <label>Description <span class="muted">(opcional)</span></label>
     <input name="description" type="text" class="span6">
     <label>Foto</label>
-    <input name="image" type="file" disabled>
+    <input name="image" type="file">
     <label>Tachos</label>
     <select name="bins[]" class="chosen" multiple="true">
       <% bins.each do |bin| %>

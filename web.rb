@@ -41,10 +41,14 @@ get '/event/new' do
 end
 
 post '/event/new' do
-  event = Event.create(sub_hash(params, :name, :description))
+  begin
+    params[:image] = params[:image][:tempfile].read
+  rescue Exception => e
+    puts 'Something went wrong reading image', e
+  end
+  event = Event.create(sub_hash(params, :name, :description, :image))
   bins = Bin.where(id: params[:bins]).all
   bins.each { |b| event.add_bin(b) }
-  p event.bins
   redirect "/event/#{event.id}"
 end
 
