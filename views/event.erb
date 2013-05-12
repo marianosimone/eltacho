@@ -1,6 +1,7 @@
 <div class="hero-unit" style="background: url('/img/event_<%= event.id %>.jpg') no-repeat; background-size: 100%; margin-top: 2em;">
     <h1 class="event-name"><%= event.name %></h1>
 </div>
+<div class="description"><p class="lead"><%= event.description %></p></div>
 
 <div class="row" style="margin-top: 6em;">
     <div class="span5 summary bottles">
@@ -16,6 +17,16 @@
       <br/>
       <span id="savings-subject"></span>
     </div>
+</div>
+<div class="row">
+  <h3>Tachos</h3>
+  <ul>
+    <% event.bins.each do |bin| %>
+      <li>
+        <%= bin.name %>: <%= bin.count %> botellas
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 <script type="text/javascript"/>

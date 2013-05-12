@@ -41,6 +41,10 @@ div.hero-unit h1.event-name {
     color: white;
 }
 
+.description {
+    text-align: center;
+}
+
 .counter {
     font-size: 6em;
     font-weight: bold;
