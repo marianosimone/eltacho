@@ -14,6 +14,8 @@ Install all necessary gems:
 
     bundle install
 
+(you can do `bundle install --without production` avoid installing production-specific gems)
+
 And you're ready to start the server:
 
     ruby web.rb
