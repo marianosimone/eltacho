@@ -11,7 +11,7 @@
                     <li class="span4" type="misc">
                         <div class="thumbnail">
                             <a rel="lightbox" href="event/<%=event.id%>">
-                                <img src="/img/event_<%=event.id%>.jpg" width="350" height="150"/>
+                                <img src="/img/<%= event.name =~ /Prueba/ ? 'test' : 'event'%>.jpg" width="350" height="150"/>
                                 <h5><%=event.name%></h5>
                             </a>  
                         </div>

@@ -1,4 +1,4 @@
-<div class="hero-unit" style="background: url('/img/event_1.jpg') no-repeat; background-size: 100%; margin-top: 2em;">
+<div class="hero-unit" style="background: url('/img/<%= event.name =~ /Prueba/ ? 'test' : 'event'%>.jpg') no-repeat; background-size: 100%; margin-top: 2em;">
     <h1 class="event-name"><%= event.name %></h1>
 </div>
 <div class="description"><p class="lead"><%= event.description %></p></div>
