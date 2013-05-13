@@ -23,7 +23,7 @@ And you're ready to start the server:
 Production
 ----------
 
-The app runs on Heroku: <eltacho.herokuapp.com>
+The app runs on Heroku: <http://eltacho.herokuapp.com>
 
 To deploy, add a "heroku" remote to git and:
 
